@@ -1,11 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 exports.clientPromise = mongoose
-  .connect(
-    'mongodb+srv://alex:qwe@cluster0-l4izx.gcp.mongodb.net/test?retryWrites=true'
-  )
+  .connect(process.env.MONGODB_URI)
   .then((client) => {
-    console.log('Connected to MongoDB');
+    console.log("Connected to MongoDB");
     return client;
   })
   .catch((err) => {
